@@ -1,0 +1,27 @@
+name: Node.js Payment Gateway CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  jobs: 
+    build:
+      name: Build and deploy payment Gateway
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        - name: Set up Node.js environment
+          uses: actions/setup-node@v3
+        
+        - name: Install dependencies
+          run: npm install
+        
+        - name: Build application
+          run: npm run build
+
+        - name: Run unit tests
+          run: npm test
