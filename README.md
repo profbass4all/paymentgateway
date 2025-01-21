@@ -19,3 +19,4 @@
   ```
 
 - **Access the Api**: Use tools like Postman or Thunderclient to interact with the endpoints
+- **Check complete jsdoc at /api-docs**
