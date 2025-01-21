@@ -6,6 +6,8 @@ const swaggerJson = require('./paymentopenapi.json')
 const PaymentRouter = require('./routes/payment.routes.js')
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
+app.use(cors());
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);

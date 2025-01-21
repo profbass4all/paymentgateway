@@ -9,11 +9,11 @@
       "url": "localhost://"
     },
     {
-      "url": "http://https://paymentgateway-eight.vercel.app/"
+      "url": "https://vercel.com/profbass4alls-projects/paymentgateway"
     }
   ],
   "paths": {
-    "/025/api/v1/payment": {
+    "/api/v1/payment": {
       "post": {
         "tags": [
           "default"
@@ -170,7 +170,7 @@
         }
       }
     },
-    "/verify": {
+    "/api/v1/payment/verify": {
       "post": {
         "tags": [
           "default"
@@ -321,7 +321,7 @@
         }
       }
     },
-    "/025/api/v1/payment/4602059932": {
+    "/api/v1/payment/4602059932": {
       "get": {
         "tags": [
           "default"
