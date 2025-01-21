@@ -19,6 +19,7 @@ it('verify payment with paystackapi', async ()=>{
 
         {
             status: true,
+            id: 4606815128,
             transaction_status: 'success',
             reference: 'leugc6rgng',
             amount: 100000 
@@ -37,6 +38,7 @@ it('verify payment with paystackapi', async ()=>{
         message: "Payment verified",
         data: {
             status: true,
+            id: 4606815128,
             transaction_status: "success",
             reference: "leugc6rgng",
             amount: 100000

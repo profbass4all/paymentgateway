@@ -49,9 +49,10 @@ const verifyTransaction = async (reference) => {
         }
 
         const data = await response.json();
-        console.log('data from verify function',data);
+        // console.log('data from verify function',data);
         return {
             status: data.status,
+            id: data.data.id,
             transaction_status: data.data.status,
             reference: data.data.reference,
             amount: data.data.amount / 100 //converting to naira
@@ -79,8 +80,15 @@ const getTransaction = async (id) => {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const data = await response.json();
-        return data
+        const {status, message, data} = await response.json();
+        // console.log(data);
+        return {
+            status,
+            message,
+            transaction_status: data.status,
+            reference: data.reference,
+            amount: data.amount / 100 //converting to naira
+        }
     } catch (error) {
 
         return null

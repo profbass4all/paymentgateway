@@ -1,6 +1,8 @@
 require('dotenv').config()
 const express = require("express");
 const bodyParser = require('body-parser')
+const swaggerUI = require('swagger-ui-express')
+const swaggerJson = require('./paymentopenapi.json')
 const PaymentRouter = require('./routes/payment.routes.js')
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,4 +20,5 @@ app.get('/', (req, res) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', PaymentRouter)
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJson));
 

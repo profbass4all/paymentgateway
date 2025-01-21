@@ -14,7 +14,7 @@ const makePaymentRequest = async (req, res)=>{
         if(transaction == null){
             throw new Error('Failed to initialize payment request')
         }
-
+        //the reference needs to be saved in the databse so that the user won't use it again
         res.status(200).json({
             status: true,
             message: 'Payment request initialized',
@@ -56,6 +56,8 @@ const verifyPayment = async (req, res)=>{
         if(!transaction.status || !transaction.transaction_status){
             throw new Error('Payment failed')
         }
+        //confirm if the reference has already been used in a previous transaction
+    
 
         //feel free to deliver service to the user because the user has paid fully....say cheese
 
@@ -76,7 +78,6 @@ async function getPaymentDetails(req, res){
 
     try {
         const { id } = req.params
-        console.log(id)
 
         if(!id){
             throw new Error('Payment ID is required')
@@ -87,6 +88,11 @@ async function getPaymentDetails(req, res){
         if(transaction == null){
             throw new Error('Failed to get payment details')
         }
+
+        if(transaction.transaction_status !== 'success' || !transaction.status ){
+            throw new Error('Payment failed or is not yet completed') 
+        }
+
         res.status(200).json({
             status: true,
             message: 'Payment details retrieved',

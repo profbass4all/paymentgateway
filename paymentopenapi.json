@@ -1,0 +1,536 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payment",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "localhost://"
+    },
+    {
+      "url": "http://{{payment_base}}"
+    }
+  ],
+  "paths": {
+    "/025/api/v1/payment": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "payment",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "abass"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "ab@gmail.com"
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "example": "4000"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "250"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"fa-UK1520ip1PYWf09l3tuh6qy1XGE\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sun, 19 Jan 2025 23:07:16 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": true,
+                  "message": "Payment request initialized",
+                  "data": {
+                    "status": true,
+                    "message": "Authorization URL created",
+                    "data": {
+                      "authorization_url": "https://checkout.paystack.com/xy6f8izlnhc2sx8",
+                      "access_code": "xy6f8izlnhc2sx8",
+                      "reference": "7jqv2zur8z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "52"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"34-gYwKClayBgA+0o/NpdvGIdCIhWY\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sun, 19 Jan 2025 23:42:30 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": false,
+                  "message": "All fields are required"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verify": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "verifypayment",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "reference": {
+                    "type": "string",
+                    "example": "ysgeoickgn"
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "example": "400"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "152"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"98-qWxtqqi6oF90eQRzNfAIKv7zyb0\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jan 2025 11:10:01 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": true,
+                  "message": "Payment verified",
+                  "data": {
+                    "status": true,
+                    "id": 4606815128,
+                    "transaction_status": "success",
+                    "reference": "qf9v717j00",
+                    "amount": 400
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "53"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"35-78yOFKWg/WHt1SbZjp/aWss8s2k\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jan 2025 11:10:23 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": false,
+                  "message": "Failed to verify payment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/025/api/v1/payment/4602059932": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "getTransaction",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "1524"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"5f4-/CBYpVawmH4f1QOZm1c0s8A/o0Q\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jan 2025 09:12:57 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": true,
+                  "message": "Payment details retrieved",
+                  "data": {
+                    "status": true,
+                    "message": "Transaction retrieved",
+                    "data": {
+                      "id": 4602059932,
+                      "domain": "test",
+                      "status": "success",
+                      "reference": "5psicm7vyz",
+                      "receipt_number": null,
+                      "amount": 4000,
+                      "message": null,
+                      "gateway_response": "Successful",
+                      "helpdesk_link": null,
+                      "paid_at": "2025-01-19T23:44:37.000Z",
+                      "created_at": "2025-01-19T23:43:55.000Z",
+                      "channel": "card",
+                      "currency": "NGN",
+                      "ip_address": "102.88.109.237",
+                      "metadata": "",
+                      "log": {
+                        "start_time": 1737330268,
+                        "time_spent": 10,
+                        "attempts": 1,
+                        "errors": 0,
+                        "success": true,
+                        "mobile": false,
+                        "input": [],
+                        "history": [
+                          {
+                            "type": "action",
+                            "message": "Attempted to pay with card",
+                            "time": 9
+                          },
+                          {
+                            "type": "success",
+                            "message": "Successfully paid with card",
+                            "time": 10
+                          }
+                        ]
+                      },
+                      "fees": 60,
+                      "fees_split": null,
+                      "authorization": {
+                        "authorization_code": "AUTH_kqo0qwyvke",
+                        "bin": "408408",
+                        "last4": "4081",
+                        "exp_month": "12",
+                        "exp_year": "2030",
+                        "channel": "card",
+                        "card_type": "visa ",
+                        "bank": "TEST BANK",
+                        "country_code": "NG",
+                        "brand": "visa",
+                        "reusable": true,
+                        "signature": "SIG_P5Y2jQDkIp0EBITWj88q",
+                        "account_name": null
+                      },
+                      "customer": {
+                        "id": 184550636,
+                        "first_name": null,
+                        "last_name": null,
+                        "email": "ab@gmail.com",
+                        "customer_code": "CUS_rg22ffa7xnfy6nb",
+                        "phone": null,
+                        "metadata": null,
+                        "risk_action": "default",
+                        "international_format_phone": null
+                      },
+                      "plan": {},
+                      "subaccount": {},
+                      "split": {},
+                      "order_id": null,
+                      "paidAt": "2025-01-19T23:44:37.000Z",
+                      "createdAt": "2025-01-19T23:43:55.000Z",
+                      "requested_amount": 4000,
+                      "pos_transaction_data": null,
+                      "source": {
+                        "type": "api",
+                        "source": "merchant_api",
+                        "identifier": null
+                      },
+                      "fees_breakdown": null,
+                      "connect": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "58"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3a-NdVrAGMy9AlXXDJPE6ETE8RddNI\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jan 2025 09:13:21 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": false,
+                  "message": "Failed to get payment details"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

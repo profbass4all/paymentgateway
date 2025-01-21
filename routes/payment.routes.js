@@ -5,7 +5,7 @@ const { makePaymentRequest, verifyPayment, getPaymentDetails } = require('../con
 
 router.post('/payment', makePaymentRequest)
 
-router.get('/payment', verifyPayment)
+router.post('/payment/verify', verifyPayment)
 
 router.get('/payment/:id', getPaymentDetails)
 
