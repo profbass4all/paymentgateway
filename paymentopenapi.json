@@ -9,7 +9,7 @@
       "url": "localhost://"
     },
     {
-      "url": "http://{{payment_base}}"
+      "url": "http://https://paymentgateway-eight.vercel.app/"
     }
   ],
   "paths": {
