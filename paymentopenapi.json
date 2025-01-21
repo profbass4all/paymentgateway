@@ -6,10 +6,10 @@
   },
   "servers": [
     {
-      "url": "localhost://"
+      "url": ""
     },
     {
-      "url": "https://vercel.com/profbass4alls-projects/paymentgateway"
+      "url": "https://paymentgateway-git-main-profbass4alls-projects.vercel.app/"
     }
   ],
   "paths": {

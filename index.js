@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api/v1', PaymentRouter)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJson));
+app.use('/api/v1', PaymentRouter)
+
 
