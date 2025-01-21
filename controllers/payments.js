@@ -11,7 +11,7 @@ const makePaymentRequest = async (req, res)=>{
 
         const transaction =await initializeTransaction( email, amount)
         console.log(transaction)
-        if(!transaction){
+        if(transaction == null){
             throw new Error('Failed to initialize payment request')
         }
 
@@ -45,17 +45,20 @@ const verifyPayment = async (req, res)=>{
         }
         
         const transaction = await verifyTransaction(reference)
-        console.log(transaction)
-        if(!transaction){
+        // console.log(transaction)
+        if(transaction == null){
             throw new Error('Failed to verify payment')
         }
-        if( transaction.data.amount/100 !==  Number(amount) ){
+        if( transaction.amount !==  Number(amount) ){
             throw new Error('Payment amount does not match')
         }
 
-        if(!transaction.status){
+        if(!transaction.status || !transaction.transaction_status){
             throw new Error('Payment failed')
         }
+
+        //feel free to deliver service to the user because the user has paid fully....say cheese
+
         res.status(200).json({
             status: true,
             message: 'Payment verified',
@@ -81,7 +84,7 @@ async function getPaymentDetails(req, res){
 
         const transaction = await getTransaction(id)
         
-        if(!transaction){
+        if(transaction == null){
             throw new Error('Failed to get payment details')
         }
         res.status(200).json({

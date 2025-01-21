@@ -7,7 +7,6 @@ const initializeTransaction = async (email, amount) => {
         email: email,
         amount: amount * 100
         //the above will convert the amount to naira because paystack accept in kobo
-
     };
 
     try {
@@ -50,7 +49,13 @@ const verifyTransaction = async (reference) => {
         }
 
         const data = await response.json();
-        return data
+        console.log('data from verify function',data);
+        return {
+            status: data.status,
+            transaction_status: data.data.status,
+            reference: data.data.reference,
+            amount: data.data.amount / 100 //converting to naira
+        }
     } catch (error) {
 
         return null

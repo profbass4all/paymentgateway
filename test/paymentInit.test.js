@@ -1,7 +1,7 @@
-const  { makePaymentRequest } = require('./controllers/payments.js')
-const {initializeTransaction, verifyTransaction }=  require("./paystackAPI.js")
+const  { makePaymentRequest } = require('../controllers/payments.js')
+const { initializeTransaction }=  require("../paystackAPI.js")
 
-jest.mock("./paystackAPI.js")
+jest.mock("../paystackAPI.js")
 
 const req = {
     body: { 
@@ -46,6 +46,20 @@ it('initialize payment with paystackapi', async ()=>{
         })
 })
 
+it('should handle initialization failure', async () => {
+    
+    initializeTransaction.mockResolvedValue(null);
+
+    await makePaymentRequest(req, res);
+
+    expect(initializeTransaction).toHaveBeenCalledWith(req.body.email, req.body.amount);
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.json).toHaveBeenCalledWith({
+        status: false,
+        message: 'Failed to initialize payment request',
+    });
+});
+
 it('should return error if required fields are missing', async () => {
 
     req.body.email = null;
@@ -59,3 +73,4 @@ it('should return error if required fields are missing', async () => {
         });
     });
 
+    
