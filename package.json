@@ -2,7 +2,7 @@
   "name": "paymentgateway",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "index.js",
   "type": "commonjs",
   "engine": {
     "node": ">=18.16.1",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "jest",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
