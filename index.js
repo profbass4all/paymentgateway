@@ -12,3 +12,10 @@ app.listen(port, ()=>{
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', PaymentRouter)
+
+app.get('/', (req, res) => {
+    res.status(200).json({
+    status: true,
+    message: 'Welcome to the Payment Gateway API',
+    });
+});
