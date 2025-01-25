@@ -5,11 +5,9 @@
     "version": "1.0.0"
   },
   "servers": [
+    
     {
-      "url": ""
-    },
-    {
-      "url": "https://paymentgateway-git-main-profbass4alls-projects.vercel.app/"
+      "url": "https://paymentgateway-git-main-profbass4alls-projects.vercel.app"
     }
   ],
   "paths": {
