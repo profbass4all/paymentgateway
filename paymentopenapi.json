@@ -5,6 +5,9 @@
     "version": "1.0.0"
   },
   "servers": [
+    {
+      "url": ""
+    },
     
     {
       "url": "https://paymentgateway-egft.onrender.com"
